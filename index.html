@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Abdourahmane BAKHOUM</title>
-    <meta name="description" content="Portfolio d'Abdourahmane BAKHOUM, apprenti ingénieur géomaticien : SIG, cartographie, télédétection et modélisation spatiale.">
+    <meta name="description" content="Portfolio d'Abdourahmane BAKHOUM, apprenti ingénieur géomaticien en Master 2 Géomatique et Modélisation Spatiale (Aix-Marseille Université) : SIG, cartographie, télédétection, analyse spatiale.">
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #16a085;
             --secondary-dark: #117a65;
+            --secondary-soft: #e8f6f3;
             --dark-color: #34495e;
-            --light-color: #f4f6f7;
             --accent-color: #2980b9;
+            --accent-soft: #eaf2f8;
+            --warm: #d68910;
+            --warm-soft: #fef5e7;
             --text-color: #2c3e50;
             --muted: #5d6d7e;
+            --line: #e1e4e6;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
@@ -32,26 +31,25 @@
             line-height: 1.6;
         }
 
-        /* ---------- EN-TÊTE ---------- */
+        a { color: var(--accent-color); }
+
+        /* ================= EN-TÊTE ================= */
         header {
             background: linear-gradient(135deg, #2c3e50, #16a085);
             color: white;
             padding: 60px 20px 50px;
             text-align: center;
         }
-
         header h1 {
             font-size: clamp(1.8rem, 5vw, 2.6rem);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
-
         header p {
             font-size: clamp(1rem, 2.5vw, 1.2rem);
             opacity: 0.92;
             font-style: italic;
         }
-
         .header-tags {
             margin-top: 20px;
             display: flex;
@@ -59,7 +57,6 @@
             justify-content: center;
             gap: 8px;
         }
-
         .header-tags span {
             background: rgba(255,255,255,0.15);
             border: 1px solid rgba(255,255,255,0.3);
@@ -68,7 +65,7 @@
             font-size: 0.85rem;
         }
 
-        /* ---------- NAVIGATION ---------- */
+        /* ================= NAVIGATION ================= */
         nav {
             background-color: var(--primary-color);
             position: sticky;
@@ -76,7 +73,6 @@
             z-index: 1000;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
-
         nav ul {
             display: flex;
             justify-content: center;
@@ -84,39 +80,29 @@
             overflow-x: auto;
             scrollbar-width: none;
         }
-
         nav ul::-webkit-scrollbar { display: none; }
-
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 15px 18px;
+            padding: 15px 16px;
             display: block;
             font-weight: 600;
             white-space: nowrap;
             transition: background 0.3s;
             border-bottom: 3px solid transparent;
         }
-
         nav ul li a:hover { background-color: var(--secondary-color); }
-
         nav ul li a.active {
             border-bottom-color: var(--secondary-color);
             background-color: rgba(255,255,255,0.06);
         }
-
-        @media (max-width: 700px) {
+        @media (max-width: 860px) {
             nav ul { justify-content: flex-start; }
-            nav ul li a { padding: 13px 14px; font-size: 0.92rem; }
+            nav ul li a { padding: 13px 13px; font-size: 0.92rem; }
         }
 
-        /* ---------- MISE EN PAGE ---------- */
-        .container {
-            max-width: 1140px;
-            margin: 30px auto;
-            padding: 0 16px;
-        }
-
+        /* ================= MISE EN PAGE ================= */
+        .container { max-width: 1140px; margin: 30px auto; padding: 0 16px; }
         section {
             background: white;
             padding: 35px;
@@ -125,10 +111,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             scroll-margin-top: 70px;
         }
-
-        @media (max-width: 600px) {
-            section { padding: 22px 18px; }
-        }
+        @media (max-width: 600px) { section { padding: 22px 16px; } }
 
         h2 {
             color: var(--primary-color);
@@ -137,7 +120,6 @@
             margin-bottom: 20px;
             font-size: 1.7rem;
         }
-
         h3 {
             color: var(--dark-color);
             margin-top: 35px;
@@ -146,129 +128,284 @@
             padding-bottom: 8px;
             border-bottom: 2px solid #eee;
         }
+        .section-intro { color: var(--muted); margin-bottom: 20px; }
 
-        h3:first-of-type { margin-top: 10px; }
-
-        .profile-container {
-            background: #fdfdfd;
-            padding: 22px;
-            border-radius: 6px;
-            border: 1px solid #eaeaea;
-        }
-
-        /* ---------- BOUTONS ---------- */
-        .btn-container { margin-top: 20px; }
-
+        /* ================= BOUTONS ================= */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background-color: var(--secondary-color);
             color: white;
-            padding: 12px 25px;
+            padding: 12px 22px;
             text-decoration: none;
+            border: none;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
             transition: background 0.3s, transform 0.2s;
         }
-
-        .btn:hover {
-            background-color: var(--secondary-dark);
-            transform: translateY(-1px);
+        .btn:hover { background-color: var(--secondary-dark); transform: translateY(-1px); }
+        .btn-outline {
+            background: white;
+            color: var(--secondary-dark);
+            border: 2px solid var(--secondary-color);
+            padding: 10px 20px;
         }
+        .btn-outline:hover { background: var(--secondary-soft); }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
-        /* ---------- CARTES COMPÉTENCES ---------- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .card {
-            background: #fafbfc;
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #e1e4e6;
-            transition: box-shadow 0.25s, transform 0.25s;
-        }
-
-        .card:hover {
-            box-shadow: 0 6px 14px rgba(0,0,0,0.07);
-            transform: translateY(-2px);
-        }
-
-        .card h4 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .card a {
+        /* Bouton de document (relevé, attestation…) */
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-soft);
             color: var(--accent-color);
-            text-decoration: none;
-            word-break: break-word;
+            border: 1px solid #c5dcee;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
         }
+        .doc-btn:hover { background: #d6e8f5; border-color: var(--accent-color); }
+        .doc-btn::before { content: "📄"; font-size: 0.9rem; }
+        .doc-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 
-        .card a:hover { text-decoration: underline; }
-
-        /* ---------- PARCOURS (frise) ---------- */
-        .timeline {
-            position: relative;
-            padding-left: 26px;
+        /* ================= PROFIL ================= */
+        .profile-container {
+            background: #fdfdfd;
+            padding: 22px;
+            border-radius: 6px;
+            border: 1px solid #eaeaea;
         }
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+        .highlight {
+            border-left: 4px solid var(--secondary-color);
+            background: var(--secondary-soft);
+            padding: 12px 14px;
+            border-radius: 4px;
+        }
+        .highlight .k {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--secondary-dark);
+            font-weight: 700;
+        }
+        .highlight .v { font-weight: 600; }
 
+        /* ================= PARCOURS (frise) ================= */
+        .timeline { position: relative; padding-left: 30px; }
         .timeline::before {
             content: "";
             position: absolute;
-            left: 6px;
-            top: 6px;
-            bottom: 6px;
+            left: 8px; top: 8px; bottom: 8px;
             width: 2px;
             background: #dfe6e9;
         }
-
         .timeline-item {
             position: relative;
-            margin-bottom: 26px;
+            margin-bottom: 22px;
+            background: #fbfcfc;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 16px 18px;
         }
-
         .timeline-item:last-child { margin-bottom: 0; }
-
         .timeline-item::before {
             content: "";
             position: absolute;
-            left: -26px;
-            top: 6px;
-            width: 14px;
-            height: 14px;
+            left: -29px; top: 20px;
+            width: 14px; height: 14px;
             border-radius: 50%;
             background: white;
             border: 3px solid var(--secondary-color);
         }
+        .timeline-item.current::before { background: var(--secondary-color); box-shadow: 0 0 0 4px rgba(22,160,133,0.2); }
+        .timeline-item.experience { background: var(--warm-soft); border-color: #f5deb3; }
+        .timeline-item.experience::before { border-color: var(--warm); }
 
-        .timeline-date {
-            font-weight: bold;
-            color: var(--secondary-color);
+        .tl-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 12px;
+            margin-bottom: 4px;
         }
+        .timeline-date { font-weight: bold; color: var(--secondary-color); }
+        .experience .timeline-date { color: var(--warm); }
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            background: #eef1f3;
+            color: var(--dark-color);
+        }
+        .badge.ok { background: var(--secondary-soft); color: var(--secondary-dark); }
+        .badge.now { background: var(--secondary-color); color: white; }
+        .badge.xp { background: #fdebd0; color: #9c640c; }
+        .tl-title { font-weight: 700; font-size: 1.05rem; }
+        .tl-school { color: var(--muted); font-size: 0.95rem; }
+        .timeline-desc { font-size: 0.93rem; color: var(--muted); margin-top: 6px; }
+        .timeline-desc strong { color: var(--text-color); }
 
-        .timeline-desc {
-            font-size: 0.95rem;
+        /* ================= COMPÉTENCES ================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .skill-card {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 18px;
+            background: #fafbfc;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .skill-card:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.07); transform: translateY(-2px); }
+        .skill-card h4 { color: var(--secondary-dark); margin-bottom: 6px; font-size: 1.05rem; }
+        .skill-card p { font-size: 0.93rem; color: var(--muted); }
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .chip {
+            background: white;
+            border: 1px solid #d5dbdf;
+            color: var(--dark-color);
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 14px;
+        }
+        .applied {
+            margin-top: auto;
+            padding-top: 12px;
+            font-size: 0.82rem;
             color: var(--muted);
         }
+        .applied::before { content: "Mis en pratique : "; font-weight: 700; color: var(--dark-color); }
 
-        /* ---------- GALERIES DE CARTES ---------- */
+        .soft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .soft-card { border: 1px dashed #cfd8dc; border-radius: 6px; padding: 16px 18px; }
+        .soft-card h4 { color: var(--primary-color); margin-bottom: 8px; }
+        .lang-row { display: flex; justify-content: space-between; font-size: 0.93rem; padding: 3px 0; border-bottom: 1px solid #f0f0f0; }
+        .lang-row:last-child { border-bottom: none; }
+        .lang-row span:last-child { color: var(--muted); }
+
+        /* ================= MÉMOIRE ================= */
+        .memoire-head {
+            background: linear-gradient(135deg, #f4f9f8, #eef5fb);
+            border: 1px solid #d6e9e4;
+            border-radius: 8px;
+            padding: 22px;
+        }
+        .memoire-head .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--secondary-dark);
+            font-weight: 700;
+        }
+        .memoire-head h3 {
+            margin: 6px 0 10px;
+            border: none;
+            padding: 0;
+            font-size: 1.35rem;
+            color: var(--primary-color);
+        }
+        .meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.92rem; color: var(--muted); }
+        .meta strong { color: var(--text-color); }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+            margin: 22px 0;
+        }
+        .stat {
+            text-align: center;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 16px 10px;
+            background: white;
+        }
+        .stat .num { font-size: 1.8rem; font-weight: 800; color: var(--secondary-color); line-height: 1.2; }
+        .stat .lbl { font-size: 0.85rem; color: var(--muted); }
+
+        .memoire-cols {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 26px;
+        }
+        @media (max-width: 860px) { .memoire-cols { grid-template-columns: 1fr; } }
+        .memoire-cols h4 { color: var(--primary-color); margin: 18px 0 8px; font-size: 1.05rem; }
+        .memoire-cols h4:first-child { margin-top: 0; }
+        .memoire-cols p, .memoire-cols li { font-size: 0.95rem; }
+        .memoire-cols ul { padding-left: 20px; }
+        .memoire-cols li { margin-bottom: 6px; }
+        .question {
+            border-left: 4px solid var(--accent-color);
+            background: var(--accent-soft);
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        .steps { list-style: none; padding: 0 !important; counter-reset: step; }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 10px;
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0; top: 0;
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dims { display: grid; gap: 8px; margin-top: 8px; }
+        .dim {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            background: #fafbfc;
+        }
+        .dim strong { color: var(--secondary-dark); }
+        .keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+        /* ================= RÉALISATIONS (galeries) ================= */
         .map-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 18px;
         }
-
-        .map-gallery.single {
-            grid-template-columns: minmax(0, 520px);
-            justify-content: center;
-        }
-
+        .map-gallery.single { grid-template-columns: minmax(0, 520px); justify-content: center; }
         .map-card {
             background: white;
             border: 1px solid #ddd;
@@ -279,12 +416,7 @@
             display: flex;
             flex-direction: column;
         }
-
-        .map-card:hover {
-            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
-
+        .map-card:hover { box-shadow: 0 8px 18px rgba(0,0,0,0.1); transform: translateY(-3px); }
         .map-thumb {
             position: relative;
             display: block;
@@ -294,18 +426,10 @@
             background-color: #f1f2f6;
             cursor: zoom-in;
         }
-
-        .map-thumb img {
-            width: 100%;
-            height: 240px;
-            object-fit: contain;
-            display: block;
-        }
-
+        .map-thumb img { width: 100%; height: 240px; object-fit: contain; display: block; }
         .zoom-hint {
             position: absolute;
-            right: 10px;
-            bottom: 10px;
+            right: 10px; bottom: 10px;
             background: rgba(44,62,80,0.85);
             color: white;
             font-size: 0.78rem;
@@ -315,44 +439,15 @@
             transition: opacity 0.25s;
             pointer-events: none;
         }
+        .map-thumb:hover .zoom-hint, .map-thumb:focus-visible .zoom-hint { opacity: 1; }
+        @media (hover: none) { .zoom-hint { opacity: 1; } }
+        .map-thumb:focus-visible { outline: 3px solid var(--accent-color); outline-offset: -3px; }
+        .map-caption { padding: 15px; font-size: 0.95rem; color: var(--muted); border-top: 1px solid #eee; }
+        .map-caption strong { color: var(--primary-color); display: block; margin-bottom: 5px; }
 
-        .map-thumb:hover .zoom-hint,
-        .map-thumb:focus-visible .zoom-hint { opacity: 1; }
-
-        @media (hover: none) {
-            .zoom-hint { opacity: 1; }
-        }
-
-        .map-thumb:focus-visible {
-            outline: 3px solid var(--accent-color);
-            outline-offset: -3px;
-        }
-
-        .map-caption {
-            padding: 15px;
-            font-size: 0.95rem;
-            color: var(--muted);
-            border-top: 1px solid #eee;
-        }
-
-        .map-caption strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* ---------- TABLEAU ---------- */
-        .table-wrap {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        .data-table {
-            width: 100%;
-            min-width: 640px;
-            border-collapse: collapse;
-        }
-
+        /* ================= TABLEAU ================= */
+        .table-wrap { overflow-x: auto; margin-top: 20px; }
+        .data-table { width: 100%; min-width: 640px; border-collapse: collapse; }
         .data-table th, .data-table td {
             border: 1px solid #ddd;
             padding: 12px;
@@ -360,15 +455,21 @@
             font-size: 0.95rem;
             vertical-align: top;
         }
-
-        .data-table th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
+        .data-table th { background-color: var(--primary-color); color: white; }
         .data-table tr:nth-child(even) { background-color: #f9f9f9; }
 
-        /* ---------- VISIONNEUSE (LIGHTBOX) ---------- */
+        /* ================= CONTACT ================= */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+        .card { background: #fafbfc; padding: 20px; border-radius: 6px; border: 1px solid var(--line); }
+        .card h4 { color: var(--secondary-color); margin-bottom: 8px; }
+        .card a { text-decoration: none; word-break: break-word; }
+        .card a:hover { text-decoration: underline; }
+
+        /* ================= VISIONNEUSE D'IMAGES ================= */
         .lightbox {
             position: fixed;
             inset: 0;
@@ -380,22 +481,14 @@
             justify-content: center;
             padding: 60px 70px 20px;
         }
-
         .lightbox.open { display: flex; }
-
         .lightbox-stage {
-            flex: 1;
-            width: 100%;
-            min-height: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 1; width: 100%; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
             overflow: hidden;
         }
-
         .lightbox-img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 100%; max-height: 100%;
             object-fit: contain;
             background: white;
             border-radius: 4px;
@@ -404,79 +497,120 @@
             transition: transform 0.25s ease;
             user-select: none;
         }
-
-        .lightbox-img.zoomed {
-            cursor: grab;
-            transition: none;
-        }
-
-        .lightbox-caption {
-            color: #ecf0f1;
-            text-align: center;
-            margin-top: 14px;
-            max-width: 800px;
-            font-size: 0.95rem;
-        }
-
-        .lightbox-caption strong {
-            display: block;
-            color: white;
-            font-size: 1.05rem;
-        }
-
-        .lightbox-counter {
-            color: #95a5a6;
-            font-size: 0.85rem;
-            margin-top: 4px;
-        }
-
+        .lightbox-img.zoomed { cursor: grab; transition: none; }
+        .lightbox-caption { color: #ecf0f1; text-align: center; margin-top: 14px; max-width: 800px; font-size: 0.95rem; }
+        .lightbox-caption strong { display: block; color: white; font-size: 1.05rem; }
+        .lightbox-counter { color: #95a5a6; font-size: 0.85rem; margin-top: 4px; }
         .lb-btn {
             position: absolute;
             background: rgba(255,255,255,0.12);
             color: white;
             border: none;
-            width: 46px;
-            height: 46px;
+            width: 46px; height: 46px;
             border-radius: 50%;
             font-size: 1.5rem;
             line-height: 1;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: background 0.2s;
         }
-
         .lb-btn:hover { background: rgba(255,255,255,0.28); }
         .lb-close { top: 12px; right: 14px; }
         .lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
         .lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
-
         .lb-hint {
-            position: absolute;
-            top: 22px;
-            left: 50%;
+            position: absolute; top: 22px; left: 50%;
             transform: translateX(-50%);
-            color: #95a5a6;
-            font-size: 0.8rem;
-            white-space: nowrap;
+            color: #95a5a6; font-size: 0.8rem; white-space: nowrap;
         }
-
         @media (max-width: 700px) {
             .lightbox { padding: 60px 8px 16px; }
             .lb-prev, .lb-next { top: auto; bottom: 16px; transform: none; }
             .lb-hint { display: none; }
         }
 
-        body.no-scroll { overflow: hidden; }
+        /* ================= VISIONNEUSE DE DOCUMENTS (PDF) ================= */
+        .docviewer {
+            position: fixed;
+            inset: 0;
+            z-index: 2100;
+            background: rgba(10, 18, 26, 0.94);
+            display: none;
+            flex-direction: column;
+        }
+        .docviewer.open { display: flex; }
+        .dv-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #1f2d3a;
+            color: white;
+            flex-shrink: 0;
+        }
+        .dv-title { flex: 1; min-width: 0; }
+        .dv-title strong { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .dv-title span { font-size: 0.8rem; color: #95a5a6; }
+        .dv-tools { display: flex; align-items: center; gap: 6px; }
+        .dv-btn {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: none;
+            min-width: 38px; height: 38px;
+            padding: 0 10px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        .dv-btn:hover { background: rgba(255,255,255,0.25); }
+        .dv-zoom { font-size: 0.85rem; color: #bdc3c7; min-width: 46px; text-align: center; }
+        .dv-body {
+            flex: 1;
+            overflow: auto;
+            padding: 20px 12px 40px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .dv-page {
+            position: relative;
+            margin: 0 auto 16px;
+            background: white;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+        .dv-page canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
+        .dv-page .dv-num {
+            position: absolute;
+            bottom: -2px; right: 6px;
+            transform: translateY(100%);
+            color: #7f8c8d;
+            font-size: 0.75rem;
+        }
+        .dv-status { color: #ecf0f1; text-align: center; padding: 60px 20px; }
+        .spinner {
+            width: 38px; height: 38px;
+            border: 4px solid rgba(255,255,255,0.2);
+            border-top-color: var(--secondary-color);
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            animation: spin 0.9s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 600px) {
+            .dv-zoom { display: none; }
+            .dv-body { padding: 12px 6px 30px; }
+        }
 
-        /* ---------- RETOUR EN HAUT ---------- */
+        body.no-scroll { overflow: hidden; }
+        @media print { body.viewing-doc { display: none !important; } }
+
+        /* ================= RETOUR EN HAUT ================= */
         .back-to-top {
             position: fixed;
-            right: 18px;
-            bottom: 18px;
-            width: 44px;
-            height: 44px;
+            right: 18px; bottom: 18px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             background: var(--secondary-color);
             color: white;
@@ -489,11 +623,7 @@
             transition: opacity 0.3s;
             z-index: 900;
         }
-
-        .back-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
 
         footer {
             background-color: var(--primary-color);
@@ -509,10 +639,11 @@
 
     <header>
         <h1>Abdourahmane BAKHOUM</h1>
-        <p>Apprenti Ingénieur Géomaticien | Master SIG & Modélisation Spatiale</p>
+        <p>Apprenti Ingénieur Géomaticien | Master 2 Géomatique & Modélisation Spatiale</p>
         <div class="header-tags">
             <span>SIG</span>
             <span>Cartographie</span>
+            <span>Analyse spatiale</span>
             <span>Télédétection</span>
             <span>Python & R</span>
             <span>PostGIS</span>
@@ -522,87 +653,357 @@
     <nav>
         <ul>
             <li><a href="#profile">Profil</a></li>
-            <li><a href="#competences">Compétences</a></li>
             <li><a href="#parcours">Parcours</a></li>
-            <li><a href="#dossiers">Dossiers & Cartes</a></li>
-            <li><a href="#donnees">Données Utilisées</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#memoire">Mémoire</a></li>
+            <li><a href="#dossiers">Réalisations</a></li>
+            <li><a href="#donnees">Données</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <main class="container">
 
-        <!-- SECTION PROFILE -->
+        <!-- ===================== PROFIL ===================== -->
         <section id="profile">
-            <h2>Profil & Curriculum Vitae</h2>
+            <h2>Profil</h2>
             <div class="profile-container">
-                <p>Étudiant passionné et rigoureux en <strong>Master 2 Géomatique et Modélisation Spatiale</strong> à Aix-Marseille Université. Je combine de solides compétences théoriques et pratiques en systèmes d'information géographique (SIG), traitement d'images satellitaires (télédétection), gestion de bases de données spatiales et modélisation systémique environnementale.</p>
-                <p style="margin-top: 12px;">Actuellement à la recherche d'une <strong>alternance / stage</strong> pour mettre à profit mes capacités d'analyse de données, de programmation (Python, R) et de conception cartographique au service de projets de territoire ou d'études d'impact environnemental.</p>
+                <p>Étudiant en <strong>Master 2 Géomatique et Modélisation Spatiale (GMS)</strong> à Aix-Marseille Université, je mets les outils SIG, l'analyse spatiale et la télédétection au service des questions d'aménagement. Mon parcours associe une formation en <strong>urbanisme et aménagement du territoire</strong> (Dakar) et une spécialisation en <strong>géographie et géomatique</strong> (Aix-Marseille), complétées par une expérience de terrain en service d'urbanisme.</p>
+                <p style="margin-top: 12px;">Je recherche une <strong>alternance ou un stage</strong> en géomatique, SIG et analyse spatiale, pour mettre mes compétences en analyse de données (Python, R, PostGIS) et en conception cartographique au service de projets de territoire ou d'études environnementales.</p>
 
-                <div class="btn-container">
-                    <!-- Ouvre le CV dans la visionneuse du navigateur (barre d'outils masquée) -->
-                    <a href="CV_Bakhoum.pdf#toolbar=0&navpanes=0" target="_blank" rel="noopener" class="btn">📄 Consulter le CV</a>
+                <div class="highlights">
+                    <div class="highlight">
+                        <div class="k">En cours</div>
+                        <div class="v">Master 2 GMS · AMU (2026-2027)</div>
+                    </div>
+                    <div class="highlight">
+                        <div class="k">Mémoire de M1</div>
+                        <div class="v">Intensification urbaine et accessibilité à Marseille</div>
+                    </div>
+                    <div class="highlight">
+                        <div class="k">Expérience</div>
+                        <div class="v">Stage SIG · Direction régionale de l'urbanisme, Saint-Louis</div>
+                    </div>
+                    <div class="highlight">
+                        <div class="k">Recherche</div>
+                        <div class="v">Alternance / stage en géomatique</div>
+                    </div>
+                </div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn" data-doc="cv">📄 Consulter le CV</button>
+                    <a href="#memoire" class="btn btn-outline">Découvrir mon mémoire</a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION COMPETENCES -->
-        <section id="competences">
-            <h2>Compétences Techniques</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h4>Cartographie & SIG Bureau</h4>
-                    <p>Maîtrise des logiciels de référence : QGIS, ArcGIS, ArcGIS Pro, MapInfo, Global Mapper, Magrit. Application stricte des règles de la sémiologie graphique.</p>
-                </div>
-                <div class="card">
-                    <h4>Télédétection & Imagerie</h4>
-                    <p>Traitement d'images de satellites (Sentinel, Landsat), classifications supervisées, extraction d'indices environnementaux avec ENVI et Google Earth Engine.</p>
-                </div>
-                <div class="card">
-                    <h4>Analyse de Données & Code</h4>
-                    <p>Développement de scripts d'automatisation spatiale et de data science avec Python (Pandas, GeoPandas, NumPy) et R / RStudio (Machine/Deep Learning).</p>
-                </div>
-                <div class="card">
-                    <h4>Bases de Données Spatiales</h4>
-                    <p>Conception, administration et requêtage avancé sur bases relationnelles spatiales avec PostgreSQL / PostGIS et Excel.</p>
-                </div>
-                <div class="card">
-                    <h4>Modélisation & Simulation</h4>
-                    <p>Analyse de dynamiques territoriales et de transitions paysagères via Terrset (Land Change Modeler), Vensim, et SpaCelle.</p>
-                </div>
-                <div class="card">
-                    <h4>Web SIG & Design</h4>
-                    <p>Publication et collecte de données web/terrain via ArcGIS Online et QField. Maîtrise d'Adobe Illustrator, Inkscape et Git/GitHub.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION PARCOURS -->
+        <!-- ===================== PARCOURS ===================== -->
         <section id="parcours">
             <h2>Parcours & Expériences</h2>
+            <p class="section-intro">Chaque étape est accompagnée de son justificatif officiel, consultable directement sur cette page.</p>
+
             <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">2025 - En cours</span>
-                    <p><strong>Master 1 Géomatique et Modélisation Spatiale</strong> - Aix-Marseille Université</p>
-                    <p class="timeline-desc">Projet phare : Mémoire de recherche sur <em>"Intensification urbaine et accessibilité : le cas de Marseille"</em>. Modélisation fine des temps d'accès aux services et équipements via l'analyse de réseaux (isochrones).</p>
+
+                <div class="timeline-item current">
+                    <div class="tl-head">
+                        <span class="timeline-date">2026 - 2027</span>
+                        <span class="badge now">En cours</span>
+                    </div>
+                    <div class="tl-title">Master 2 Géomatique et Modélisation Spatiale (GMS)</div>
+                    <div class="tl-school">Aix-Marseille Université (AMU), Aix-en-Provence</div>
+                    <p class="timeline-desc">Analyse spatiale, télédétection et programmation Python appliquées aux territoires ; analyse de réseau et cartographie de flux (isochrones, plus courts chemins) ; cartographie thématique et sémiologie graphique.</p>
                 </div>
+
                 <div class="timeline-item">
-                    <span class="timeline-date">2023 (Stage de fin de cycle)</span>
-                    <p><strong>Chargé de Cartographie / SIG</strong> - Division Régionale de l'Urbanisme et de l'Habitat, Saint-Louis (Sénégal)</p>
-                    <p class="timeline-desc">Projet de restructuration urbaine du quartier de Pikine. Collecte de données terrain, conception de bases de données géographiques, réalisation des dossiers cartographiques et examen des permis d'occupation du sol.</p>
+                    <div class="tl-head">
+                        <span class="timeline-date">2025 - 2026</span>
+                        <span class="badge ok">Admis · 15,15/20</span>
+                    </div>
+                    <div class="tl-title">Master 1 Géomatique et Modélisation Spatiale (GMS)</div>
+                    <div class="tl-school">Aix-Marseille Université (AMU)</div>
+                    <p class="timeline-desc">Enseignements : SIG, <em>GIS and Spatial Analysis</em>, <em>Spatial Data Geoprocessing</em> (17/20), <em>Remote Sensing</em>, <em>Knowledge-Based Spatial Modeling</em>, conduite de projet scientifique (16/20). <strong>Mémoire :</strong> « Intensification urbaine : accessibilités aux services et aux transports. Le cas de la ville de Marseille » (<a href="#memoire">voir la rubrique</a>).</p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="m1">Relevé de notes M1</button>
+                        <button type="button" class="doc-btn" data-doc="memoire">Mémoire de M1</button>
+                    </div>
                 </div>
+
                 <div class="timeline-item">
-                    <span class="timeline-date">2020 - 2024</span>
-                    <p><strong>Licences Universitaires</strong> - Aix-Marseille Université & UAM (Dakar)</p>
-                    <p class="timeline-desc">Licence 3 Géographie et Aménagement (2024) et Licence 3 Urbanisme et Aménagement du Territoire (2023).</p>
+                    <div class="tl-head">
+                        <span class="timeline-date">2024 - 2025</span>
+                        <span class="badge ok">Admis · 13,48/20</span>
+                    </div>
+                    <div class="tl-title">Licence 3 Géographie et Aménagement</div>
+                    <div class="tl-school">Aix-Marseille Université (AMU)</div>
+                    <p class="timeline-desc">SIG, analyse de données et cartographie, aménagement des territoires français, développement durable des territoires, études urbaines critiques, réchauffement climatique contemporain.</p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="l3amu">Relevé de notes L3</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item experience">
+                    <div class="tl-head">
+                        <span class="timeline-date">30 oct. - 1<sup>er</sup> déc. 2023</span>
+                        <span class="badge xp">Stage</span>
+                    </div>
+                    <div class="tl-title">Stagiaire Cartographie / SIG</div>
+                    <div class="tl-school">Direction Régionale de l'Urbanisme et de l'Habitat de Saint-Louis (DRUH), Sénégal</div>
+                    <p class="timeline-desc">Stage d'immersion et de consolidation des acquis. Projet de restructuration urbaine du quartier de Pikine : collecte de données de terrain, conception de bases de données géographiques, production des dossiers cartographiques et examen des permis d'occupation du sol.</p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="attest-stage">Attestation de stage</button>
+                        <button type="button" class="doc-btn" data-doc="accord-stage">Accord de stage</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-head">
+                        <span class="timeline-date">2022 - 2023</span>
+                        <span class="badge ok">Mention Bien · 15,75/20</span>
+                    </div>
+                    <div class="tl-title">Licence 3 Urbanisme et Aménagement du Territoire</div>
+                    <div class="tl-school">École Supérieure d'Urbanisme, d'Architecture et d'Aménagement du Territoire (ESU2A), Université Amadou Mahtar Mbow, Dakar</div>
+                    <p class="timeline-desc">Aménagement régional et planification urbaine, géomatique appliquée et projets SIG, projet de territoire et gouvernance, projets et ateliers urbains, stage et rapport de fin de cycle (17/20). <strong>Diplôme de Licence obtenu avec mention Bien.</strong></p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="l3uam">Relevé de notes L3</button>
+                        <button type="button" class="doc-btn" data-doc="diplome-uam">Attestation de réussite (Licence)</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-head">
+                        <span class="timeline-date">2021 - 2022</span>
+                        <span class="badge ok">Admis · 14,28/20</span>
+                    </div>
+                    <div class="tl-title">Licence 2 Urbanisme et Aménagement du Territoire</div>
+                    <div class="tl-school">ESU2A, Université Amadou Mahtar Mbow, Dakar</div>
+                    <p class="timeline-desc">Géomatique, analyse et traitement de données, bases de données, traitement d'images satellites, CAO/DAO, statistiques appliquées, projets SIG, politiques urbaines et morphologie architecturale.</p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="l2">Relevé de notes L2</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-head">
+                        <span class="timeline-date">2020 - 2021</span>
+                        <span class="badge ok">Admis · 14,39/20</span>
+                    </div>
+                    <div class="tl-title">Licence 1 Urbanisme et Aménagement du Territoire</div>
+                    <div class="tl-school">ESU2A, Université Amadou Mahtar Mbow, Dakar</div>
+                    <p class="timeline-desc">Introduction à l'aménagement du territoire, géomorphologie et climatologie, algorithmique et programmation, géodésie-topographie, statistiques, villes et urbanisation.</p>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="l1">Relevé de notes L1</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="tl-head">
+                        <span class="timeline-date">2020</span>
+                        <span class="badge ok">Mention Bien · 14/20</span>
+                    </div>
+                    <div class="tl-title">Baccalauréat série L2 (Sciences sociales et humaines)</div>
+                    <div class="tl-school">Sokone, Sénégal</div>
+                    <div class="doc-list">
+                        <button type="button" class="doc-btn" data-doc="bac">Relevé de notes du Bac</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== COMPÉTENCES ===================== -->
+        <section id="competences">
+            <h2>Compétences</h2>
+            <p class="section-intro">Compétences techniques acquises au fil de ma formation et mobilisées dans mes travaux.</p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>SIG & Cartographie</h4>
+                    <p>Traitement et analyse de données géographiques ; conception de cartes thématiques dans le respect de la sémiologie graphique.</p>
+                    <div class="chips">
+                        <span class="chip">QGIS</span><span class="chip">ArcGIS</span><span class="chip">ArcGIS Pro</span><span class="chip">MapInfo</span><span class="chip">Global Mapper</span><span class="chip">FME</span><span class="chip">Magrit</span>
+                    </div>
+                    <div class="applied">tous les dossiers cartographiques, mémoire M1</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Analyse spatiale & réseaux</h4>
+                    <p>Analyse de réseau (isochrones, plus courts chemins, accessibilité), indicateurs composites, statistiques spatiales et maillages réguliers.</p>
+                    <div class="chips">
+                        <span class="chip">Isochrones</span><span class="chip">Indices synthétiques</span><span class="chip">Carroyage</span><span class="chip">Taille d'effet</span><span class="chip">Corrélations</span>
+                    </div>
+                    <div class="applied">mémoire M1 (Marseille), dossier Bouches-du-Rhône</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Télédétection & Imagerie</h4>
+                    <p>Traitement d'images satellites, classifications supervisées, comparaison de capteurs et suivi des changements d'occupation du sol.</p>
+                    <div class="chips">
+                        <span class="chip">ENVI</span><span class="chip">Google Earth Engine</span><span class="chip">Sentinel-2</span><span class="chip">Landsat</span><span class="chip">Terrset (LCM)</span><span class="chip">Photo-interprétation</span>
+                    </div>
+                    <div class="applied">dossier Klaipeda (Lituanie), dossier Yamal</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Bases de données spatiales</h4>
+                    <p>Conception, administration et requêtage de bases de données relationnelles spatiales.</p>
+                    <div class="chips">
+                        <span class="chip">PostgreSQL</span><span class="chip">PostGIS</span><span class="chip">SQL</span><span class="chip">Excel avancé</span>
+                    </div>
+                    <div class="applied">stage DRUH Saint-Louis, mémoire M1</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Programmation & Data science</h4>
+                    <p>Scripts d'automatisation des traitements spatiaux et analyse de données.</p>
+                    <div class="chips">
+                        <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">GeoPandas</span><span class="chip">NumPy</span><span class="chip">R / RStudio</span>
+                    </div>
+                    <div class="applied">Spatial Data Geoprocessing (M1), mémoire M1</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Web SIG & collecte terrain</h4>
+                    <p>Publication de données cartographiques en ligne et collecte de données sur le terrain.</p>
+                    <div class="chips">
+                        <span class="chip">ArcGIS Online</span><span class="chip">QField</span><span class="chip">GeoServer</span><span class="chip">GeoNode</span>
+                    </div>
+                    <div class="applied">stage DRUH Saint-Louis (collecte terrain)</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Modélisation & Simulation</h4>
+                    <p>Modélisation des dynamiques territoriales et des transitions paysagères.</p>
+                    <div class="chips">
+                        <span class="chip">Terrset / IDRISI</span><span class="chip">Vensim</span><span class="chip">SpaCelle</span>
+                    </div>
+                    <div class="applied">Knowledge-Based Spatial Modeling (M1), dossier Klaipeda</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>PAO, DAO & outils collaboratifs</h4>
+                    <p>Mise en page cartographique, dessin technique et travail versionné.</p>
+                    <div class="chips">
+                        <span class="chip">Illustrator</span><span class="chip">Inkscape</span><span class="chip">AutoCAD</span><span class="chip">Git / GitHub</span><span class="chip">Overleaf (LaTeX)</span><span class="chip">Suite Office</span>
+                    </div>
+                    <div class="applied">mise en forme des cartes, ce portfolio</div>
+                </div>
+
+                <div class="skill-card">
+                    <h4>Urbanisme & Aménagement</h4>
+                    <p>Diagnostic territorial, documents de planification, politiques urbaines et projets d'aménagement durable.</p>
+                    <div class="chips">
+                        <span class="chip">SCoT / PLUi</span><span class="chip">Loi ZAN</span><span class="chip">Diagnostic territorial</span><span class="chip">Projet urbain</span><span class="chip">Permis d'occuper</span>
+                    </div>
+                    <div class="applied">Licences ESU2A, stage DRUH, mémoire M1</div>
+                </div>
+            </div>
+
+            <div class="soft-grid">
+                <div class="soft-card">
+                    <h4>🌐 Langues</h4>
+                    <div class="lang-row"><span>Français</span><span>Courant</span></div>
+                    <div class="lang-row"><span>Anglais</span><span>Intermédiaire (cours de M1 en anglais)</span></div>
+                    <div class="lang-row"><span>Arabe</span><span>Débutant</span></div>
+                </div>
+                <div class="soft-card">
+                    <h4>🤝 Qualités</h4>
+                    <div class="chips" style="margin-top:0">
+                        <span class="chip">Rigueur & sens de l'analyse</span><span class="chip">Autonomie</span><span class="chip">Esprit d'initiative</span><span class="chip">Capacité d'adaptation</span><span class="chip">Force de proposition</span><span class="chip">Travail en équipe pluridisciplinaire</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION DOSSIERS -->
+        <!-- ===================== MÉMOIRE ===================== -->
+        <section id="memoire">
+            <h2>Mémoire de Master 1</h2>
+
+            <div class="memoire-head">
+                <div class="label">Mémoire de recherche · Master 1 GMS · 2025-2026</div>
+                <h3>Intensification urbaine : accessibilités aux services et aux transports. Le cas de la ville de Marseille</h3>
+                <div class="meta">
+                    <span><strong>Direction :</strong> Vincent Laperrière, Maître de conférences (UMR 7300 ESPACE)</span>
+                    <span><strong>Université :</strong> Aix-Marseille Université</span>
+                    <span><strong>Volume :</strong> 52 pages</span>
+                </div>
+                <div class="btn-row">
+                    <button type="button" class="btn" data-doc="memoire">📖 Lire le mémoire complet</button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat"><div class="num">412</div><div class="lbl">IRIS analysés sur toute la commune</div></div>
+                <div class="stat"><div class="num">6</div><div class="lbl">indicateurs agrégés en 3 dimensions</div></div>
+                <div class="stat"><div class="num">71,3 %</div><div class="lbl">des IRIS de la zone prioritaire alliant forte densité et bonne desserte</div></div>
+                <div class="stat"><div class="num">13,9 %</div><div class="lbl">seulement dans le reste de la commune</div></div>
+            </div>
+
+            <div class="memoire-cols">
+                <div>
+                    <h4>Résumé</h4>
+                    <p>Depuis les années 1960, la ville française s'est développée par étalement urbain, un modèle aujourd'hui remis en cause et encadré par la loi Climat et Résilience (2021), qui fixe l'objectif de zéro artificialisation nette (ZAN) en 2050. L'intensification urbaine, qui consiste à densifier les espaces déjà urbanisés plutôt qu'à s'étendre, s'impose comme alternative, à condition de s'accompagner d'un accès suffisant aux services et aux infrastructures.</p>
+                    <p style="margin-top:10px">Ce mémoire construit un <strong>Indice Synthétique d'Intensification Urbaine (ISIU)</strong> à l'échelle des IRIS de Marseille, puis le confronte à la <strong>Zone Prioritaire d'Intensification (ZPI)</strong> définie par le SCoT Aix-Marseille-Provence.</p>
+
+                    <h4>Question de recherche</h4>
+                    <p class="question">Dans quelle mesure les politiques d'intensification urbaine à Marseille prennent-elles en compte l'accessibilité aux services et aux infrastructures ?</p>
+
+                    <h4>Démarche méthodologique</h4>
+                    <ol class="steps">
+                        <li>Collecte et structuration des données spatiales (INSEE, IGN, Métropole).</li>
+                        <li>Calcul de six indices élémentaires, normalisés par la méthode min-max.</li>
+                        <li>Agrégation pondérée en trois dimensions.</li>
+                        <li>Combinaison dans un indice global, l'ISIU, calculé pour chaque IRIS.</li>
+                        <li>Comparaison ZPI / reste de la commune par la taille d'effet (d de Cohen), puis typologie croisée densité × accessibilité.</li>
+                    </ol>
+
+                    <h4>Principaux résultats</h4>
+                    <ul>
+                        <li>La ZPI est nettement plus intensifiée que le reste de la commune (écart modéré à fort, d = 0,74), et cette intensification va de pair avec une meilleure desserte : un ciblage cohérent avec la logique du <em>Transit Oriented Development</em>.</li>
+                        <li>L'écart tient surtout au volume bâti et à la mixité des usages, et non à un entassement de population.</li>
+                        <li>Paradoxe : l'accessibilité pèse peu dans le score global de l'ISIU, dominé par la diversité fonctionnelle.</li>
+                        <li>Quelques secteurs, surtout dans les 11<sup>e</sup> et 15<sup>e</sup> arrondissements, cumulent forte intensification et déficit de desserte : ce sont les « IRIS à surveiller ».</li>
+                    </ul>
+
+                    <h4>Conclusion</h4>
+                    <p>Les politiques d'intensification à Marseille prennent en compte l'accessibilité <strong>de façon incomplète et inégale</strong> : satisfaisante à l'échelle de la ZPI, insuffisante dans l'outil de pilotage, et absente pour une minorité de quartiers.</p>
+                </div>
+
+                <div>
+                    <h4>Architecture de l'ISIU</h4>
+                    <div class="dims">
+                        <div class="dim"><strong>Dimension humaine</strong><br>Densité humaine nette (60 %) + volume bâti (40 %)</div>
+                        <div class="dim"><strong>Dimension qualité de vie</strong><br>Taux d'espaces verts (40 %) + diversité fonctionnelle (60 %)</div>
+                        <div class="dim"><strong>Dimension accessibilité</strong><br>Transports collectifs à 300 m (50 %) + équipements à 15 min à pied (50 %)</div>
+                    </div>
+
+                    <h4>Données mobilisées</h4>
+                    <ul>
+                        <li>INSEE : recensement (population, emplois), contours IRIS, Base Permanente des Équipements</li>
+                        <li>IGN : BD TOPO (bâti, hauteurs, réseaux viaire et piéton), BD Parcellaire</li>
+                        <li>Métropole Aix-Marseille-Provence : espaces verts, arrêts de transport collectif</li>
+                        <li>Documents de planification : SCoT 2025 (prescription P103), PLUi Marseille-Provence</li>
+                    </ul>
+
+                    <h4>Limites & perspectives</h4>
+                    <ul>
+                        <li>Pondération normative, à éprouver par une analyse en composantes principales.</li>
+                        <li>Accessibilité potentielle (offre), et non vécue : à enrichir avec des données d'usage réel.</li>
+                        <li>Sources de millésimes différents et effet du découpage (MAUP).</li>
+                        <li>Extension possible à l'échelle métropolitaine et suivi dans le temps des IRIS à surveiller.</li>
+                    </ul>
+
+                    <h4>Mots-clés</h4>
+                    <div class="keywords">
+                        <span class="chip">Intensification urbaine</span><span class="chip">Accessibilité</span><span class="chip">Densification</span><span class="chip">ZAN</span><span class="chip">SCoT / PLUi</span><span class="chip">IRIS</span><span class="chip">Indice synthétique</span><span class="chip">Inégalités territoriales</span><span class="chip">Marseille</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== RÉALISATIONS ===================== -->
         <section id="dossiers">
             <h2>Dossiers & Réalisations Cartographiques</h2>
-            <p style="color: var(--muted); font-size: 0.95rem;">Cliquez sur une carte pour l'afficher en grand.</p>
+            <p class="section-intro">Cliquez sur une carte pour l'afficher en grand.</p>
 
             <!-- THEME 1 -->
             <h3>1. Restauration & Cantines Scolaires (Vannes, Golfe du Morbihan)</h3>
@@ -793,7 +1194,7 @@
             </div>
         </section>
 
-        <!-- SECTION DONNEES UTILISEES -->
+        <!-- ===================== DONNÉES ===================== -->
         <section id="donnees">
             <h2>Données Utilisées</h2>
             <p>Toutes mes réalisations s'appuient sur l'acquisition, la structuration et le traitement rigoureux de bases de données de référence publiques et scientifiques :</p>
@@ -807,6 +1208,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td><strong>Mémoire M1 : Intensification urbaine (Marseille)</strong></td>
+                            <td>INSEE (recensement, IRIS, BPE), IGN BD TOPO et BD Parcellaire, données de la Métropole Aix-Marseille-Provence, SCoT et PLUi.</td>
+                            <td>Construction d'un indice synthétique par IRIS, accessibilité piétonne (300 m, 15 min), comparaison statistique et typologie croisée.</td>
+                        </tr>
                         <tr>
                             <td><strong>Cantines Scolaires (Vannes)</strong></td>
                             <td>IGN Admin Express, données d'enquêtes de régie directe, BD parcellaire locale.</td>
@@ -837,21 +1243,25 @@
             </div>
         </section>
 
-        <!-- SECTION CONTACT -->
+        <!-- ===================== CONTACT ===================== -->
         <section id="contact">
-            <h2>Contact & Informations</h2>
+            <h2>Contact</h2>
             <div class="grid-3">
                 <div class="card">
-                    <h4>📍 Coordonnées</h4>
+                    <h4>📍 Adresse</h4>
                     <p>121 Boulevard National, 13003 Marseille</p>
                 </div>
                 <div class="card">
-                    <h4>✉️ Email Professionnel</h4>
+                    <h4>✉️ Email</h4>
                     <p><a href="mailto:bakhoumabdourahmane99@gmail.com">bakhoumabdourahmane99@gmail.com</a></p>
                 </div>
                 <div class="card">
                     <h4>📞 Téléphone</h4>
                     <p><a href="tel:+33773854434">07 73 85 44 34</a></p>
+                </div>
+                <div class="card">
+                    <h4>💼 LinkedIn</h4>
+                    <p><a href="https://www.linkedin.com/in/bakhoumabdourahmane" target="_blank" rel="noopener">linkedin.com/in/bakhoumabdourahmane</a></p>
                 </div>
             </div>
         </section>
@@ -860,9 +1270,10 @@
 
     <footer>
         <p>&copy; 2026 - Portfolio Géomatique & Cartographie | Abdourahmane BAKHOUM</p>
+        <p style="opacity:0.7; font-size:0.8rem; margin-top:4px;">Documents présentés en consultation uniquement.</p>
     </footer>
 
-    <!-- VISIONNEUSE D'IMAGES -->
+    <!-- ===================== VISIONNEUSE D'IMAGES ===================== -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse de cartes">
         <span class="lb-hint">Cliquez sur l'image pour zoomer · ← → pour naviguer · Échap pour fermer</span>
         <button class="lb-btn lb-close" type="button" aria-label="Fermer">✕</button>
@@ -874,25 +1285,237 @@
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
+    <!-- ===================== VISIONNEUSE DE DOCUMENTS ===================== -->
+    <div class="docviewer" id="docviewer" role="dialog" aria-modal="true" aria-label="Visionneuse de documents">
+        <div class="dv-bar">
+            <div class="dv-title">
+                <strong id="dv-title">Document</strong>
+                <span id="dv-info">Consultation uniquement</span>
+            </div>
+            <div class="dv-tools">
+                <button class="dv-btn" type="button" id="dv-out" aria-label="Dézoomer">−</button>
+                <span class="dv-zoom" id="dv-zoom">100 %</span>
+                <button class="dv-btn" type="button" id="dv-in" aria-label="Zoomer">+</button>
+                <button class="dv-btn" type="button" id="dv-close" aria-label="Fermer">✕</button>
+            </div>
+        </div>
+        <div class="dv-body" id="dv-body"></div>
+    </div>
+
     <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut">↑</button>
 
     <script>
         (function () {
-            // ---------- Visionneuse ----------
+            /* =========================================================
+               DOCUMENTS (stockés dans le dépôt GitHub, même emplacement que les images)
+               ========================================================= */
+            var BASE = 'https://raw.githubusercontent.com/bakhoumabdourahmane/Porfolio/main/';
+            var DOCS = {
+                'cv':           { file: 'CV_Bakhoum.pdf',                  title: 'Curriculum Vitae' },
+                'memoire':      { file: 'Memoir_M1.pdf',                   title: 'Mémoire de Master 1 : Intensification urbaine et accessibilité (Marseille)' },
+                'm1':           { file: 'Détails_des_Notes_M1_AMU.pdf',    title: 'Relevé de notes : Master 1 GMS (AMU, 2025-2026)' },
+                'l3amu':        { file: 'notes_L3_amu.pdf',                title: 'Relevé de notes : Licence 3 Géographie et Aménagement (AMU, 2024-2025)' },
+                'attest-stage': { file: 'attestation de stage DRUH-SL.pdf', title: 'Attestation de stage : DRUH Saint-Louis (2023)' },
+                'accord-stage': { file: 'Accord de stage DRUH-SL.pdf',     title: 'Accord de stage : DRUH Saint-Louis (2023)' },
+                'l3uam':        { file: 'Releve Licence 3.pdf',            title: 'Relevé de notes : Licence 3 Urbanisme (UAM, 2022-2023)' },
+                'diplome-uam':  { file: 'Attestation de Licence UAM.pdf',  title: 'Attestation de réussite : Licence en Urbanisme et Aménagement du Territoire (UAM)' },
+                'l2':           { file: 'Relevé licence 2.pdf',            title: 'Relevé de notes : Licence 2 Urbanisme (UAM, 2021-2022)' },
+                'l1':           { file: 'Relevé licence 1.pdf',            title: 'Relevé de notes : Licence 1 Urbanisme (UAM, 2020-2021)' },
+                'bac':          { file: 'Releve du BAC.pdf',               title: 'Relevé de notes : Baccalauréat 2020' }
+            };
+
+            /* =========================================================
+               VISIONNEUSE PDF (affichage en images, sans bouton de téléchargement)
+               ========================================================= */
+            var PDFJS_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+            var pdfjsPromise = null;
+            var viewer = document.getElementById('docviewer');
+            var dvBody = document.getElementById('dv-body');
+            var dvTitle = document.getElementById('dv-title');
+            var dvInfo = document.getElementById('dv-info');
+            var dvZoom = document.getElementById('dv-zoom');
+            var currentPdf = null, currentToken = 0, zoom = 1, pageObserver = null, dvLastFocus = null;
+
+            function loadPdfJs() {
+                if (!pdfjsPromise) {
+                    pdfjsPromise = new Promise(function (resolve, reject) {
+                        var s = document.createElement('script');
+                        s.src = PDFJS_CDN + 'pdf.min.js';
+                        s.onload = function () {
+                            window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_CDN + 'pdf.worker.min.js';
+                            resolve(window.pdfjsLib);
+                        };
+                        s.onerror = function () { pdfjsPromise = null; reject(new Error('pdfjs')); };
+                        document.head.appendChild(s);
+                    });
+                }
+                return pdfjsPromise;
+            }
+
+            function setStatus(html) { dvBody.innerHTML = '<div class="dv-status">' + html + '</div>'; }
+
+            function baseWidth() {
+                var w = dvBody.clientWidth - 24;
+                return Math.max(260, Math.min(w, 900));
+            }
+
+            function drawWatermark(ctx, w, h) {
+                ctx.save();
+                ctx.translate(w / 2, h / 2);
+                ctx.rotate(-Math.PI / 6);
+                ctx.fillStyle = 'rgba(44, 62, 80, 0.10)';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                var fs = Math.round(w / 22);
+                ctx.font = 'bold ' + fs + 'px Segoe UI, Arial, sans-serif';
+                for (var y = -h; y <= h; y += fs * 6) {
+                    ctx.fillText('A. BAKHOUM · Consultation uniquement', 0, y);
+                }
+                ctx.restore();
+            }
+
+            function renderPage(holder, token) {
+                if (holder.dataset.done === '1' || holder.dataset.busy === '1') return;
+                holder.dataset.busy = '1';
+                var num = parseInt(holder.dataset.page, 10);
+                currentPdf.getPage(num).then(function (page) {
+                    if (token !== currentToken) return;
+                    var cssW = baseWidth() * zoom;
+                    var vp1 = page.getViewport({ scale: 1 });
+                    var scale = cssW / vp1.width;
+                    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    var vp = page.getViewport({ scale: scale * dpr });
+                    var canvas = document.createElement('canvas');
+                    canvas.width = Math.floor(vp.width);
+                    canvas.height = Math.floor(vp.height);
+                    holder.style.width = cssW + 'px';
+                    holder.style.height = (cssW * vp1.height / vp1.width) + 'px';
+                    var ctx = canvas.getContext('2d');
+                    return page.render({ canvasContext: ctx, viewport: vp }).promise.then(function () {
+                        if (token !== currentToken) return;
+                        drawWatermark(ctx, canvas.width, canvas.height);
+                        var old = holder.querySelector('canvas');
+                        if (old) holder.removeChild(old);
+                        holder.insertBefore(canvas, holder.firstChild);
+                        holder.dataset.done = '1';
+                    });
+                }).catch(function () {}).then(function () { holder.dataset.busy = '0'; });
+            }
+
+            function buildPages(ratio) {
+                var token = currentToken;
+                if (pageObserver) pageObserver.disconnect();
+                dvBody.innerHTML = '';
+                var cssW = baseWidth() * zoom;
+                pageObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) { if (e.isIntersecting) renderPage(e.target, token); });
+                }, { root: dvBody, rootMargin: '600px 0px' });
+                for (var i = 1; i <= currentPdf.numPages; i++) {
+                    var holder = document.createElement('div');
+                    holder.className = 'dv-page';
+                    holder.dataset.page = i;
+                    holder.style.width = cssW + 'px';
+                    holder.style.height = (cssW * ratio) + 'px';
+                    if (currentPdf.numPages > 1) {
+                        var n = document.createElement('span');
+                        n.className = 'dv-num';
+                        n.textContent = i + ' / ' + currentPdf.numPages;
+                        holder.appendChild(n);
+                    }
+                    dvBody.appendChild(holder);
+                    pageObserver.observe(holder);
+                }
+                dvZoom.textContent = Math.round(zoom * 100) + ' %';
+            }
+
+            function refreshLayout() {
+                if (!currentPdf) return;
+                var scrollRatio = dvBody.scrollTop / Math.max(1, dvBody.scrollHeight);
+                currentToken++;
+                currentPdf.getPage(1).then(function (p) {
+                    var v = p.getViewport({ scale: 1 });
+                    buildPages(v.height / v.width);
+                    dvBody.scrollTop = scrollRatio * dvBody.scrollHeight;
+                });
+            }
+
+            function openDoc(key) {
+                var doc = DOCS[key];
+                if (!doc) return;
+                dvLastFocus = document.activeElement;
+                currentToken++;
+                var token = currentToken;
+                currentPdf = null;
+                zoom = 1;
+                dvTitle.textContent = doc.title;
+                dvInfo.textContent = 'Consultation uniquement';
+                dvZoom.textContent = '100 %';
+                viewer.classList.add('open');
+                document.body.classList.add('no-scroll', 'viewing-doc');
+                setStatus('<div class="spinner"></div>Chargement du document…');
+                document.getElementById('dv-close').focus();
+
+                loadPdfJs().then(function (pdfjsLib) {
+                    return pdfjsLib.getDocument({ url: BASE + encodeURIComponent(doc.file) }).promise;
+                }).then(function (pdf) {
+                    if (token !== currentToken) return;
+                    currentPdf = pdf;
+                    dvInfo.textContent = pdf.numPages + (pdf.numPages > 1 ? ' pages' : ' page') + ' · Consultation uniquement';
+                    return pdf.getPage(1).then(function (p) {
+                        if (token !== currentToken) return;
+                        var v = p.getViewport({ scale: 1 });
+                        buildPages(v.height / v.width);
+                    });
+                }).catch(function () {
+                    if (token !== currentToken) return;
+                    setStatus('Le document n\'a pas pu être chargé.<br>Vérifiez votre connexion puis réessayez.');
+                });
+            }
+
+            function closeDoc() {
+                currentToken++;
+                if (pageObserver) pageObserver.disconnect();
+                if (currentPdf) { currentPdf.destroy(); currentPdf = null; }
+                dvBody.innerHTML = '';
+                viewer.classList.remove('open');
+                document.body.classList.remove('no-scroll', 'viewing-doc');
+                if (dvLastFocus) dvLastFocus.focus();
+            }
+
+            document.querySelectorAll('[data-doc]').forEach(function (b) {
+                b.addEventListener('click', function () { openDoc(b.getAttribute('data-doc')); });
+            });
+            document.getElementById('dv-close').addEventListener('click', closeDoc);
+            document.getElementById('dv-in').addEventListener('click', function () {
+                if (zoom < 2.5) { zoom = Math.round((zoom + 0.25) * 100) / 100; refreshLayout(); }
+            });
+            document.getElementById('dv-out').addEventListener('click', function () {
+                if (zoom > 0.5) { zoom = Math.round((zoom - 0.25) * 100) / 100; refreshLayout(); }
+            });
+            viewer.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+            viewer.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+            var resizeTimer = null;
+            window.addEventListener('resize', function () {
+                if (!viewer.classList.contains('open')) return;
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refreshLayout, 250);
+            });
+
+            /* =========================================================
+               VISIONNEUSE D'IMAGES (cartes)
+               ========================================================= */
             var cards = Array.prototype.slice.call(document.querySelectorAll('.map-card'));
             var lightbox = document.getElementById('lightbox');
             var lbImg = document.getElementById('lightbox-img');
             var lbCaption = document.getElementById('lightbox-caption');
-            var current = 0;
-            var zoomed = false;
-            var lastFocus = null;
+            var current = 0, zoomed = false, lastFocus = null;
 
             function resetZoom() {
                 zoomed = false;
                 lbImg.classList.remove('zoomed');
                 lbImg.style.transform = '';
             }
-
             function show(index) {
                 current = (index + cards.length) % cards.length;
                 var card = cards[current];
@@ -904,16 +1527,14 @@
                 lbCaption.innerHTML = cap.innerHTML +
                     '<div class="lightbox-counter">' + (current + 1) + ' / ' + cards.length + '</div>';
             }
-
-            function open(index) {
+            function openLb(index) {
                 lastFocus = document.activeElement;
                 show(index);
                 lightbox.classList.add('open');
                 document.body.classList.add('no-scroll');
                 lightbox.querySelector('.lb-close').focus();
             }
-
-            function close() {
+            function closeLb() {
                 lightbox.classList.remove('open');
                 document.body.classList.remove('no-scroll');
                 resetZoom();
@@ -921,19 +1542,16 @@
             }
 
             cards.forEach(function (card, i) {
-                card.querySelector('.map-thumb').addEventListener('click', function () { open(i); });
+                card.querySelector('.map-thumb').addEventListener('click', function () { openLb(i); });
             });
-
-            lightbox.querySelector('.lb-close').addEventListener('click', close);
+            lightbox.querySelector('.lb-close').addEventListener('click', closeLb);
             lightbox.querySelector('.lb-prev').addEventListener('click', function () { show(current - 1); });
             lightbox.querySelector('.lb-next').addEventListener('click', function () { show(current + 1); });
-
-            // Clic sur le fond sombre = fermer
             lightbox.addEventListener('click', function (e) {
-                if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) close();
+                if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) closeLb();
             });
 
-            // Zoom au clic sur l'image (x2,5) centré sur le point cliqué
+            var dragging = false, moved = false, startX, startY, startOx, startOy;
             lbImg.addEventListener('click', function (e) {
                 if (moved) { moved = false; return; }
                 if (!zoomed) {
@@ -948,9 +1566,6 @@
                     resetZoom();
                 }
             });
-
-            // Déplacement de l'image zoomée (glisser)
-            var dragging = false, moved = false, startX, startY, startOx, startOy;
             lbImg.addEventListener('pointerdown', function (e) {
                 if (!zoomed) return;
                 dragging = true; moved = false;
@@ -966,22 +1581,12 @@
                 var dx = (e.clientX - startX) / r.width * 100;
                 var dy = (e.clientY - startY) / r.height * 100;
                 if (Math.abs(e.clientX - startX) + Math.abs(e.clientY - startY) > 4) moved = true;
-                var nx = Math.min(100, Math.max(0, startOx - dx * 2));
-                var ny = Math.min(100, Math.max(0, startOy - dy * 2));
-                lbImg.style.transformOrigin = nx + '% ' + ny + '%';
+                lbImg.style.transformOrigin = Math.min(100, Math.max(0, startOx - dx * 2)) + '% ' +
+                                              Math.min(100, Math.max(0, startOy - dy * 2)) + '%';
             });
             lbImg.addEventListener('pointerup', function () { dragging = false; });
             lbImg.addEventListener('pointercancel', function () { dragging = false; });
 
-            // Clavier
-            document.addEventListener('keydown', function (e) {
-                if (!lightbox.classList.contains('open')) return;
-                if (e.key === 'Escape') close();
-                else if (e.key === 'ArrowRight') show(current + 1);
-                else if (e.key === 'ArrowLeft') show(current - 1);
-            });
-
-            // Glissement tactile pour changer de carte (mobile)
             var touchX = null;
             lightbox.addEventListener('touchstart', function (e) {
                 if (zoomed) return;
@@ -994,7 +1599,24 @@
                 touchX = null;
             });
 
-            // ---------- Menu actif selon la section visible ----------
+            /* =========================================================
+               CLAVIER
+               ========================================================= */
+            document.addEventListener('keydown', function (e) {
+                if (viewer.classList.contains('open')) {
+                    if (e.key === 'Escape') closeDoc();
+                    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) e.preventDefault();
+                    return;
+                }
+                if (!lightbox.classList.contains('open')) return;
+                if (e.key === 'Escape') closeLb();
+                else if (e.key === 'ArrowRight') show(current + 1);
+                else if (e.key === 'ArrowLeft') show(current - 1);
+            });
+
+            /* =========================================================
+               MENU ACTIF + RETOUR EN HAUT
+               ========================================================= */
             var links = document.querySelectorAll('nav a');
             var sections = document.querySelectorAll('main section');
             if ('IntersectionObserver' in window) {
@@ -1010,7 +1632,6 @@
                 sections.forEach(function (s) { obs.observe(s); });
             }
 
-            // ---------- Bouton retour en haut ----------
             var topBtn = document.getElementById('back-to-top');
             window.addEventListener('scroll', function () {
                 topBtn.classList.toggle('visible', window.scrollY > 600);
